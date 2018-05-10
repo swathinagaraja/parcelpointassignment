@@ -12,6 +12,7 @@ public class SampleTest
 	@Test
 	public void testSample()
 	{
+		System.out.println("Sample Test");
 		Assert.assertEquals("Sample Test".length(), 11);
 	}
 
@@ -25,6 +26,7 @@ public class SampleTest
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.get(baseUrl);
 
+		System.out.println("Loaded " + driver.getTitle() + " in Chrome");
 		Assert.assertEquals("Google", driver.getTitle());
 		driver.quit();
 	}
