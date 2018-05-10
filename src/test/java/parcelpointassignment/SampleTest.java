@@ -1,7 +1,10 @@
 package parcelpointassignment;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SampleTest
 {
@@ -12,4 +15,17 @@ public class SampleTest
 		Assert.assertEquals("Sample Test".length(), 11);
 	}
 
+	@Test
+	public void testSampleSelinium()
+	{
+		ChromeDriver driver = new ChromeDriver();
+		String baseUrl = "http://google.com";
+
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.get(baseUrl);
+
+		Assert.assertEquals("Google", driver.getTitle());
+		driver.quit();
+	}
 }
