@@ -16,8 +16,8 @@ public class ReturnDetailsPage
 
 	public void enterOrderNo(String orderNo)
 	{
-		WebElement element = driver.findElement(By.xpath("//input[@id='order-number-returns']"));
-		element.sendKeys(orderNo);
+		WebElement orderNoField = driver.findElement(By.xpath("//input[@id='order-number-returns']"));
+		orderNoField.sendKeys(orderNo);
 		System.out.println("Order No :" + orderNo);
 	}
 
@@ -30,26 +30,26 @@ public class ReturnDetailsPage
 
 	public void enterUserName(String userName)
 	{
-		WebElement element = driver.findElement(By.id("delivery-name-createAccount"));
-		element.sendKeys(userName);
+		WebElement giveName = driver.findElement(By.id("delivery-name-createAccount"));
+		giveName.sendKeys(userName);
 	}
 
 	public void enterEmailId(String emailId)
 	{
-		WebElement element = driver.findElement(By.id("delivery-email-createAccount"));
-		element.sendKeys(emailId);
+		WebElement giveMail = driver.findElement(By.id("delivery-email-createAccount"));
+		giveMail.sendKeys(emailId);
 	}
 
 	public void enterContactNo(String contactNo)
 	{
-		WebElement element = driver.findElement(By.id("delivery-mobile-createAccount"));
-		element.sendKeys(contactNo);
+		WebElement giveNo = driver.findElement(By.id("delivery-mobile-createAccount"));
+		giveNo.sendKeys(contactNo);
 	}
 
 	public void clickSubmitButton()
 	{
-		WebElement element = driver.findElement(By.id("submitReturnsForm"));
-		element.click();
+		WebElement clickSubmit = driver.findElement(By.id("submitReturnsForm"));
+		clickSubmit.click();
 	}
 
 }

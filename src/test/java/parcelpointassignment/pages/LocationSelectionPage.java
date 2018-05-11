@@ -27,14 +27,14 @@ public class LocationSelectionPage
 
 	public void selectFirstLocation()
 	{
-		WebElement element = driver.findElement(By.className("select"));//By defalut this selects the first option
-		element.click();
+		WebElement enterLocation = driver.findElement(By.className("select"));//By defalut this selects the first option
+		enterLocation.click();
 	}
 
 	public void clickNextButton()
 	{
 		driver.switchTo().defaultContent();
-		WebElement element = driver.findElement(By.xpath("//button[@id='parcelPointSubmitButton']"));
-		element.click();
+		WebElement nextButton = driver.findElement(By.xpath("//button[@id='parcelPointSubmitButton']"));
+		nextButton.click();
 	}
 }

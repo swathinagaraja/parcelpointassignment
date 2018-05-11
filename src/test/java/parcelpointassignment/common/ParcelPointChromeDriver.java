@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ParcelPointChromeDriver extends ChromeDriver
 {
 
-	//TODO: move to constants or a configuration class
 	private static String projectLocation = System.getProperty("user.dir");
 
 	public ParcelPointChromeDriver()
