@@ -18,12 +18,12 @@ public class ReturnBookingSummaryPage
 		this.driver = driver;
 	}
 
-	public void returnMsg()
+	public String getReturnMsg()
 	{
 		WebElement element = driver.findElement(By.xpath("//p[@class='lead']"));
 		String message = element.getText();
-		logger.info(message);
-
+		logger.info("Return message : " + message);
+		return message;
 	}
 
 }

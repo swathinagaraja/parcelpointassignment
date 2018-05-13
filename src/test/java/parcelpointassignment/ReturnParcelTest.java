@@ -3,6 +3,7 @@ package parcelpointassignment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -37,14 +38,23 @@ public class ReturnParcelTest
 		ReturnDetailsPage rd = new ReturnDetailsPage(driver);
 		rd.enterOrderNo("AAU" + randomNo + "6188");
 		rd.enterReason();
-		rd.enterUserName("Test" + randomNo);
+		String username = "Test" + randomNo;
+		rd.enterUserName(username);
 		rd.enterEmailId("Test" + randomNo + "@gmail.com");
 		rd.enterContactNo("047958" + randomNo);
 		rd.clickSubmitButton();
 
 		ReturnBookingSummaryPage rb = new ReturnBookingSummaryPage(driver);
-		rb.returnMsg();
-		logger.info("The return is placed successfully");
+		String returnMessage = rb.getReturnMsg();
+		if (returnMessage != null && !returnMessage.isEmpty())
+		{
+			Assert.assertTrue(returnMessage.equals("Thanks " + username + ", your return has been booked!"));
+			logger.info("The return is placed successfully");
+		}
+		else
+		{
+			Assert.fail("Invalid return message, Return wasnt booked :" + returnMessage);
+		}
 	}
 
 	@AfterClass
